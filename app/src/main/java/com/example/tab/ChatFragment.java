@@ -1,6 +1,7 @@
 package com.example.tab;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
 
 
 /**
@@ -19,6 +27,7 @@ public class ChatFragment extends Fragment {
     public ChatFragment() {
         // Required empty public constructor
     }
+
 
 
     @Override

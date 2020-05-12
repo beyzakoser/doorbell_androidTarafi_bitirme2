@@ -4,9 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
+
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private void setupViewPager(ViewPager viewPager){ //tab icin
         ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),0);
         viewPagerAdapter.addFragment(new ChatFragment(),"CHATS");
         viewPagerAdapter.addFragment(new CameraFragment(),"CAMERA");
         viewPager.setAdapter(viewPagerAdapter);
+
     }
 }
