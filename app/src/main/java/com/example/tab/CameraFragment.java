@@ -26,7 +26,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public byte[] buff;
     Button buton;
     View v;
-    public int sayac = 0;
+
 
 
     public CameraFragment() {
@@ -40,7 +40,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_camera, container, false);
-        buton = (Button) v.findViewById(R.id.btncamera);
+        //buton = (Button) v.findViewById(R.id.btncamera);
         image = (ImageView) v.findViewById(R.id.img);
         image.setImageResource(R.drawable.camera);
         toggleButton = (ToggleButton) v.findViewById(R.id.toggleBtn);
@@ -61,8 +61,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 public void run() {
 
                     try {
-                        int port = 4400;
-                        final DatagramSocket clientsocket = new DatagramSocket(port);
+                        int port2 = 4000;
+                        final DatagramSocket clientsocket = new DatagramSocket(MainActivity.port);
                         byte[] receivedata = new byte[92024];
 
                         while (true) {

@@ -7,25 +7,12 @@
     tools:context=".CameraFragment">
 
 
-    <Button
-        android:id="@+id/btncamera"
-        android:layout_width="109dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="376dp"
-        android:baselineAligned="false"
-        android:onClick="onClick"
-        android:text="OPEN THE CAMERA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/img"
         android:layout_width="281dp"
         android:layout_height="306dp"
-        app:layout_constraintBottom_toTopOf="@+id/btncamera"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -35,18 +22,16 @@
         android:id="@+id/toggleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:drawableStart="@drawable/selector"
         android:drawableLeft="@drawable/selector"
         android:text="ToggleButton"
-        android:textOn="CLOSE THE CAMERA"
         android:textOff="OPEN THE CAMERA"
+        android:textOn="CLOSE THE CAMERA"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btncamera"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
