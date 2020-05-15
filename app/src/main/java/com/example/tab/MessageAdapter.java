@@ -13,17 +13,22 @@ import java.util.List;
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.CustomViewHolder> {
     class CustomViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
+        TextView date;
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             textView=itemView.findViewById(R.id.textMessage);
+            date=itemView.findViewById(R.id.date);
         }
     }
 
 
     List<ResponseMessage> responseMessageList;
+    List<ResponseMessage> dateList;
+
 
     public MessageAdapter(List<ResponseMessage> responseMessageList) {
         this.responseMessageList=responseMessageList;
+
     }
 
     @Override
@@ -38,12 +43,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.CustomVi
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       return new CustomViewHolder(LayoutInflater.from(parent.getContext()).inflate(viewType,parent,false));
+        return new CustomViewHolder(LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageAdapter.CustomViewHolder holder, int position) {
         holder.textView.setText(responseMessageList.get(position).getTextMesage());
+        holder.date.setText(responseMessageList.get(position).getDate());
     }
 
     @Override

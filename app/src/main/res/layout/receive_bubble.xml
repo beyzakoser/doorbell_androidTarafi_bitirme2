@@ -21,5 +21,17 @@
         android:textColor="#fff"
         android:textSize="15sp"
         app:fontFamily="@font/montserrat" />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/colorgrey"
+        android:layout_below="@+id/textMessage"
+        android:text="10.02.2020"
+        app:fontFamily="@font/montserrat"
+        android:textSize="10sp"
+        />
 
 </RelativeLayout>

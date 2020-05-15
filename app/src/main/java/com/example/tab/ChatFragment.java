@@ -19,7 +19,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -32,6 +34,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
     Button button;
     RecyclerView recyclerView;
     List<ResponseMessage> responseMessageList;
+    List<ResponseMessage> dateList;
     MessageAdapter messageAdapter;
     View v;
 
@@ -49,6 +52,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
         button = (Button) v.findViewById(R.id.button);
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
         responseMessageList = new ArrayList<>();
+
         messageAdapter = new MessageAdapter(responseMessageList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(messageAdapter);
@@ -63,7 +67,9 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
 
         MessageSender messagesender = new MessageSender();
         messagesender.execute(el.getText().toString());
-        ResponseMessage messages2 = new ResponseMessage(el.getText().toString(), true);
+        SimpleDateFormat sdf=new SimpleDateFormat("MMM d , HH:mm");
+        String zaman=sdf.format(new Date());
+        ResponseMessage messages2 = new ResponseMessage(el.getText().toString(), true,zaman);
         responseMessageList.add(messages2);
         messageAdapter.notifyDataSetChanged();//listede degisiklik old ekranı yenilemek icin
         el.setText("");
@@ -106,7 +112,9 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
                                 // Toast.makeText(getApplicationContext(),"Doorbell is ringing!!",Toast.LENGTH_SHORT).show();
 
                             } else {
-                                ResponseMessage messages = new ResponseMessage(message, false);
+                                SimpleDateFormat sdf2=new SimpleDateFormat("MMM d , HH:mm");
+                                String zaman2=sdf2.format(new Date());
+                                ResponseMessage messages = new ResponseMessage(message, false,zaman2);
                                 responseMessageList.add(messages);
                                 messageAdapter.notifyDataSetChanged();
                                 if (!isvisible()) { //mesajlar

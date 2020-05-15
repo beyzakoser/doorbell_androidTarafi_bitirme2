@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    public static int port = 4000;
+    public static int port = 4400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
