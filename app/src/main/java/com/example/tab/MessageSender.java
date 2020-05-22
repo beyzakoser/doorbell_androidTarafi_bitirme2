@@ -17,7 +17,6 @@ public class MessageSender extends AsyncTask<String,Void,Void> {
     protected Void doInBackground(String... voids) {
         String message=voids[0];
         try {
-            //s=new Socket("192.168.43.166",5000);
             s=new Socket("192.168.1.5",MainActivity.port);
             pw=new PrintWriter(s.getOutputStream());
             pw.write(message);
