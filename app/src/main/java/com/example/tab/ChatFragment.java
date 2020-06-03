@@ -1,7 +1,16 @@
 package com.example.tab;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +46,11 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
     List<ResponseMessage> dateList;
     MessageAdapter messageAdapter;
     View v;
+    private static final String CHANNEL_ID="bildirim";
+    private static final String CHANNEL_NAME="bildirim";
+    private static final String CHANNEL_DESC="bildirim";
+
+
 
     public ChatFragment() {
         // Required empty public constructor
@@ -52,7 +66,6 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
         button = (Button) v.findViewById(R.id.button);
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
         responseMessageList = new ArrayList<>();
-
         messageAdapter = new MessageAdapter(responseMessageList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(messageAdapter);
@@ -85,6 +98,23 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
         int itemCount = recyclerView.getAdapter().getItemCount();
         return (positionOfLastVisibleItem >= itemCount);
     }
+    private void displayNotification(){
+        NotificationCompat.Builder mBuilder=new NotificationCompat.Builder(getContext(),CHANNEL_ID)
+                .setSmallIcon(R.drawable.bell)
+                .setTicker("Hello!!") //ilk gözüken küçük bildirim
+                .setContentTitle("Kapı çalıyor!!")
+                .setContentText("Kapıda biri var")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setWhen(System.currentTimeMillis())
+                .setDefaults(NotificationCompat.DEFAULT_VIBRATE|NotificationCompat.DEFAULT_SOUND) //hem ses hem titreşim için
+                .setAutoCancel(true);
+        Intent intent=new Intent(getContext(),MainActivity.class);
+        PendingIntent pendingIntent=PendingIntent.getActivity(getContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(pendingIntent);
+        NotificationManagerCompat notificationManagerCompat=NotificationManagerCompat.from(getContext());
+        notificationManagerCompat.notify(1,mBuilder.build());
+
+    }
 
     class MyServerThread implements Runnable {
         Socket s;
@@ -93,6 +123,8 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
         BufferedReader bufferedReader;
         Handler h = new Handler();
         String message;
+        //Context context=getActivity(); //bu kısım normalde =this şeklinde
+        //Notification.Builder myNotification;
 
         @Override
         public void run() {
@@ -108,8 +140,8 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
                     h.post(new Runnable() {
                         @Override
                         public void run() {
-                            if (message.equals("Zil")) {
-                                // Toast.makeText(getApplicationContext(),"Doorbell is ringing!!",Toast.LENGTH_SHORT).show();
+                            if (message.equals("zil")) {
+                                displayNotification();
 
                             } else {
                                 SimpleDateFormat sdf2=new SimpleDateFormat("MMM d , HH:mm");

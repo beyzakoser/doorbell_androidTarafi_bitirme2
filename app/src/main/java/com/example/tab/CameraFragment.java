@@ -78,6 +78,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                                             Thread.interrupted();
                                             clientsocket.close();
                                             image.setImageDrawable(getResources().getDrawable(R.drawable.camera));//resim alımını kapat
+
                                         }
 
                                     }
