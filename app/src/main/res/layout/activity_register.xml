@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".RegisterActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="SIGN UP"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="35dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="20dp">
+        <EditText
+            android:id="@+id/text_name"
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:background="@drawable/edit_bkgd"
+            android:drawableLeft="@drawable/ic_user"
+            android:paddingLeft="10dp"
+            android:inputType="text"
+            android:hint=" First name"
+            android:fontFamily="@font/montserrat"
+            android:textColorHint="@color/colorgrey"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/text_surname"
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:background="@drawable/edit_bkgd"
+            android:drawableLeft="@drawable/ic_user"
+            android:paddingLeft="15dp"
+            android:inputType="text"
+            android:hint=" Last name"
+            android:fontFamily="@font/montserrat"
+            android:textColorHint="@color/colorgrey"
+            android:textColor="@color/colorBlack" />
+
+    </LinearLayout>
+
+            <EditText
+                android:id="@+id/text_email"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/edit_bkgd"
+                android:drawableLeft="@drawable/ic_mail"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:hint=" Email address"
+                android:fontFamily="@font/montserrat"
+                android:textColorHint="@color/colorgrey"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/colorBlack" /> />
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/edit_bkgd"
+            android:drawableLeft="@drawable/ic_ip"
+            android:paddingLeft="10dp"
+            android:inputType="text"
+            android:hint=" IP address"
+            android:fontFamily="@font/montserrat"
+            android:textColorHint="@color/colorgrey"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorBlack" />
+        <EditText
+            android:id="@+id/text_password"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/edit_bkgd"
+            android:drawableLeft="@drawable/ic_password"
+            android:paddingLeft="10dp"
+            android:inputType="textPassword"
+            android:hint=" Password"
+            android:fontFamily="@font/montserrat"
+            android:textColorHint="@color/colorgrey"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorBlack" />
+        <EditText
+            android:id="@+id/text_againPassword"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/edit_bkgd"
+            android:drawableLeft="@drawable/ic_password"
+            android:paddingLeft="10dp"
+            android:inputType="textPassword"
+            android:hint=" Confirm password"
+            android:fontFamily="@font/montserrat"
+            android:textColorHint="@color/colorgrey"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorBlack" />
+
+        <Button
+            android:id="@+id/btn_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SIGN UP"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:background="@drawable/btn_bkgd"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:text="Do you already have an account?"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/text_logIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text=" LOG IN"
+                android:textStyle="bold"
+                android:textSize="17dp"
+
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>
