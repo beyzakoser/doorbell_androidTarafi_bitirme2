@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "911278535673",
+    "firebase_url": "https://kapizili-54225.firebaseio.com",
+    "project_id": "kapizili-54225",
+    "storage_bucket": "kapizili-54225.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911278535673:android:826ff5507a95f685fa8328",
+        "android_client_info": {
+          "package_name": "com.example.tab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911278535673-jln3j7t0mc3bvfhfgo9ir13atqc7d7ri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tab",
+            "certificate_hash": "4385c0104fa914b5d657855a8f28fb20ef7bed07"
+          }
+        },
+        {
+          "client_id": "911278535673-2chlt45gnvftcr7qsdhfi8k6gnkv69l2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9QqojqiSnofiFV_F66jRb4erjT8T98Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911278535673-2chlt45gnvftcr7qsdhfi8k6gnkv69l2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

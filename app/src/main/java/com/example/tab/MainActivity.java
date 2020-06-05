@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     public static int port = 4400;
+    public static String ip = "192.168.1.8";
     private static final String CHANNEL_ID="bildirim";
     private static final String CHANNEL_NAME="bildirim";
     private static final String CHANNEL_DESC="bildirim";

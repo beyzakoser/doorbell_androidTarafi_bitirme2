@@ -22,7 +22,7 @@ import java.net.SocketException;
 public class CameraFragment extends Fragment implements View.OnClickListener {
     ImageView imageView;
     public ImageView image;
-    ToggleButton toggleButton;
+    ToggleButton toggleButton,toggleButton2;
     public byte[] buff;
     Button buton;
     View v;
@@ -42,6 +42,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
         image = (ImageView) v.findViewById(R.id.img);
         image.setImageResource(R.drawable.camera);
         toggleButton = (ToggleButton) v.findViewById(R.id.toggleBtn);
+        toggleButton2 = (ToggleButton) v.findViewById(R.id.toggleBtn2); //mailbox
         toggleButton.setOnClickListener(this);
         return v;
 
@@ -100,6 +101,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
             });
             myThread.start();
 //stream bitis
+
+        }
+        else if(toggleButton2.isChecked()){
+            MessageSender messagesender = new MessageSender();
+            messagesender.execute("kutuKapa"); //sonradanEklenenKisim
 
         }
     }

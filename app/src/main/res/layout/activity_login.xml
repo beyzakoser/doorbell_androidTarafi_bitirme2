@@ -41,7 +41,7 @@
             android:background="@drawable/edit_bkgd"
             android:drawableLeft="@drawable/ic_user"
             android:paddingLeft="20dp"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:hint=" Email Address"
             android:fontFamily="@font/montserrat"
             android:textColorHint="@color/colorgrey"
