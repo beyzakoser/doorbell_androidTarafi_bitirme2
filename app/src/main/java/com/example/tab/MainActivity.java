@@ -8,6 +8,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 import android.os.Bundle;
+
 import com.google.android.material.tabs.TabLayout;
 
 
@@ -18,27 +19,27 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     public static int port = 4400;
     public static String ip = "192.168.1.8";
-    private static final String CHANNEL_ID="bildirim";
-    private static final String CHANNEL_NAME="bildirim";
-    private static final String CHANNEL_DESC="bildirim";
+    private static final String CHANNEL_ID = "bildirim";
+    private static final String CHANNEL_NAME = "bildirim";
+    private static final String CHANNEL_DESC = "bildirim";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //tab kısmı
-        toolbar=(Toolbar) findViewById(R.id.myToolbar);
-        tabLayout=(TabLayout) findViewById(R.id.tablayout);
-        viewPager=(ViewPager)findViewById(R.id.myViewPager);
+        toolbar = (Toolbar) findViewById(R.id.myToolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tablayout);
+        viewPager = (ViewPager) findViewById(R.id.myViewPager);
         setSupportActionBar(toolbar);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
 //tab bitis
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel=new NotificationChannel(CHANNEL_ID,CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
             channel.setDescription(CHANNEL_DESC);
-            NotificationManager manager=getSystemService(NotificationManager.class);
+            NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
 
         }
@@ -47,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void setupViewPager(ViewPager viewPager){ //tab icin
-        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),0);
-        viewPagerAdapter.addFragment(new ChatFragment(),"CHATS");
-        viewPagerAdapter.addFragment(new CameraFragment(),"CAMERA");
+    private void setupViewPager(ViewPager viewPager) { //tab icin
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
+        viewPagerAdapter.addFragment(new ChatFragment(), "CHATS");
+        viewPagerAdapter.addFragment(new CameraFragment(), "CAMERA");
         viewPager.setAdapter(viewPagerAdapter);
 
     }

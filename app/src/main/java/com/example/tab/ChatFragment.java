@@ -46,10 +46,9 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
     List<ResponseMessage> dateList;
     MessageAdapter messageAdapter;
     View v;
-    private static final String CHANNEL_ID="bildirim";
-    private static final String CHANNEL_NAME="bildirim";
-    private static final String CHANNEL_DESC="bildirim";
-
+    private static final String CHANNEL_ID = "bildirim";
+    private static final String CHANNEL_NAME = "bildirim";
+    private static final String CHANNEL_DESC = "bildirim";
 
 
     public ChatFragment() {
@@ -80,9 +79,9 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
 
         MessageSender messagesender = new MessageSender();
         messagesender.execute(el.getText().toString());
-        SimpleDateFormat sdf=new SimpleDateFormat("MMM d , HH:mm");
-        String zaman=sdf.format(new Date());
-        ResponseMessage messages2 = new ResponseMessage(el.getText().toString(), true,zaman);
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d , HH:mm");
+        String zaman = sdf.format(new Date());
+        ResponseMessage messages2 = new ResponseMessage(el.getText().toString(), true, zaman);
         responseMessageList.add(messages2);
         messageAdapter.notifyDataSetChanged();//listede degisiklik old ekranı yenilemek icin
         el.setText("");
@@ -98,21 +97,22 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
         int itemCount = recyclerView.getAdapter().getItemCount();
         return (positionOfLastVisibleItem >= itemCount);
     }
-    private void displayNotification(){
-        NotificationCompat.Builder mBuilder=new NotificationCompat.Builder(getContext(),CHANNEL_ID)
+
+    private void displayNotification() {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getContext(), CHANNEL_ID)
                 .setSmallIcon(R.drawable.bell)
                 .setTicker("Hello!!") //ilk gözüken küçük bildirim
                 .setContentTitle("Kapı çalıyor!!")
                 .setContentText("Kapıda biri var")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setWhen(System.currentTimeMillis())
-                .setDefaults(NotificationCompat.DEFAULT_VIBRATE|NotificationCompat.DEFAULT_SOUND) //hem ses hem titreşim için
+                .setDefaults(NotificationCompat.DEFAULT_VIBRATE | NotificationCompat.DEFAULT_SOUND) //hem ses hem titreşim için
                 .setAutoCancel(true);
-        Intent intent=new Intent(getContext(),MainActivity.class);
-        PendingIntent pendingIntent=PendingIntent.getActivity(getContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(pendingIntent);
-        NotificationManagerCompat notificationManagerCompat=NotificationManagerCompat.from(getContext());
-        notificationManagerCompat.notify(1,mBuilder.build());
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
+        notificationManagerCompat.notify(1, mBuilder.build());
 
     }
 
@@ -144,9 +144,9 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
                                 displayNotification();
 
                             } else {
-                                SimpleDateFormat sdf2=new SimpleDateFormat("MMM d , HH:mm");
-                                String zaman2=sdf2.format(new Date());
-                                ResponseMessage messages = new ResponseMessage(message, false,zaman2);
+                                SimpleDateFormat sdf2 = new SimpleDateFormat("MMM d , HH:mm");
+                                String zaman2 = sdf2.format(new Date());
+                                ResponseMessage messages = new ResponseMessage(message, false, zaman2);
                                 responseMessageList.add(messages);
                                 messageAdapter.notifyDataSetChanged();
                                 if (!isvisible()) { //mesajlar

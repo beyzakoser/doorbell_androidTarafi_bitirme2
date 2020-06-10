@@ -60,12 +60,12 @@
             android:textColorHint="@color/colorgrey"
             android:layout_marginBottom="20dp"
             android:textColor="@color/colorBlack" />
-        <TextView
-            android:id="@+id/text_forgot_password"
+        <CheckBox
+            android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:text="Forgot Password?"
+            android:text="Remember me"
             android:textSize="15dp"
             android:layout_gravity="right"
             android:layout_marginBottom="15dp"
